@@ -19,5 +19,22 @@ namespace DialogueSystem
         /// The value of the field, such as Fred or 42.
         /// </summary>
         public string value = null;
+        
+        /// <summary>
+        /// The data type of the field, such as Text or Number.
+        /// </summary>
+        public FieldType type = FieldType.Text;
+        
+        /// <summary>
+        /// The name of a field drawer class.
+        /// </summary>
+        public string typeString = string.Empty;
+        
+        /// <summary>
+        /// Initializes a new Field.
+        /// </summary>
+        public Field() { }
+        
+        
     }
 }
