@@ -1,0 +1,8 @@
+:root
+{
+    --dg-colors-grid-light-grey-1: #2b2b2b;
+    --dg-colors-grid-light-grey-2: rgba(51,51,51,0.4);
+    --dg-colors-grid-light-grey-3: rgba(51,51,51,1);
+    
+    --dg-metrics-grid-space: 25;
+}
