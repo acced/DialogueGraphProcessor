@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Editor.Node;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
@@ -15,40 +16,82 @@ namespace Editor.DialogueGraph
             
             AddGridBackground();
 
-            CreateNode();
-
             AddStyles();
             
             
         }
 
-        private void CreateNode()
+        public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+        {
+            List<Port> compatiblePorts = new List<Port>();
+            ports.ForEach(port =>
+            {
+                if (startPort == port)
+                {
+                    return;
+                }
+
+                if (startPort.node == port.node)
+                {
+                    return;
+                }
+
+                if (startPort.direction == port.direction)
+                {
+                    return;
+                }
+                
+                compatiblePorts.Add(port);
+
+            });
+            return compatiblePorts;
+        }
+
+        private DGNode CreateNode(Vector2 position)
         {
             DGNode node = new DGNode();
-            node.Initialize();
+            node.Initialize("New Dialogue",this,position);
             node.Draw();
-            node.SetPosition(new Rect(100, 200, 100, 150)); // 设置初始位置和大小
-            DGNode node1 = new DGNode();
-            node1.SetPosition(new Rect(300, 200, 100, 150)); // 设置初始位置和大小
-            AddElement(node1);
-            node1.Initialize();
-            node1.Draw();
-            AddElement(node);
-            AddElement(node1);
+
+            return node;
         }
 
         private void AddManipulators()
         {
             SetupZoom(ContentZoomer.DefaultMinScale,ContentZoomer.DefaultMaxScale);
+      
+            
+   
+            
             this.AddManipulator(new ContentDragger());
-            this.AddManipulator(new ClickSelector());
+            this.AddManipulator(new SelectionDragger());
+            this.AddManipulator(new RectangleSelector());
+            
+            
+            this.AddManipulator(CreateNodeContextualMenu());
+            
+           // this.AddManipulator(new ClickSelector());
+        }
+
+        private IManipulator CreateNodeContextualMenu()
+        {
+            ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator((menuEvent =>
+            {
+                menuEvent.menu.AppendAction("Add Node",(action => AddElement(CreateNode(action.eventInfo.localMousePosition))));
+            }));
+            return contextualMenuManipulator;
         }
 
         private void AddStyles()
         {
             StyleSheet styleSheet =
                 (StyleSheet)EditorGUIUtility.Load("Assets/Editor Default Resources/Dialogue Graph/DGDialogueGrapgViewStyles.uss");
+            StyleSheet nodetyleSheet =
+                (StyleSheet)EditorGUIUtility.Load("Assets/Editor Default Resources/Dialogue Graph/DGNode.uss");
             styleSheets.Add(styleSheet);
+            
+            
+            styleSheets.Add(nodetyleSheet);
         }
 
         private void AddGridBackground()
