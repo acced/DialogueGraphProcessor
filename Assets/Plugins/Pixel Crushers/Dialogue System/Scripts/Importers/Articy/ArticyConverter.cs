@@ -1126,7 +1126,7 @@ namespace PixelCrushers.DialogueSystem.Articy
 
             if (!entriesByPinID.TryGetValue(connection.target.pinRef, out targetEntry))
             {
-               Debug.LogError($"Can't find input pin {connection.target.pinRef} for connection [{connection.source.idRef}/{connection.source.pinRef}]-->[{connection.target.idRef}/{connection.target.pinRef}]");
+                Debug.LogError($"Can't find input pin {connection.target.pinRef} for connection [{connection.source.idRef}/{connection.source.pinRef}]-->[{connection.target.idRef}/{connection.target.pinRef}]");
                 return;
             }
 

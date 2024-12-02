@@ -70,14 +70,14 @@ namespace Editor.DialogueGraph
             
             this.AddManipulator(CreateNodeContextualMenu());
             
-           // this.AddManipulator(new ClickSelector());
+            this.AddManipulator(new ClickSelector());
         }
 
         private IManipulator CreateNodeContextualMenu()
         {
             ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator((menuEvent =>
             {
-                menuEvent.menu.AppendAction("Add Node",(action => AddElement(CreateNode(action.eventInfo.localMousePosition))));
+                menuEvent.menu.AppendAction("Add Node",(action =>  AddElement(CreateNode(action.eventInfo.localMousePosition))));
             }));
             return contextualMenuManipulator;
         }
@@ -89,8 +89,6 @@ namespace Editor.DialogueGraph
             StyleSheet nodetyleSheet =
                 (StyleSheet)EditorGUIUtility.Load("Assets/Editor Default Resources/Dialogue Graph/DGNode.uss");
             styleSheets.Add(styleSheet);
-            
-            
             styleSheets.Add(nodetyleSheet);
         }
 
@@ -99,6 +97,8 @@ namespace Editor.DialogueGraph
             GridBackground gridBackground = new GridBackground();
             
             gridBackground.StretchToParentSize();
+            
+            
             
             Insert(0,gridBackground);
 

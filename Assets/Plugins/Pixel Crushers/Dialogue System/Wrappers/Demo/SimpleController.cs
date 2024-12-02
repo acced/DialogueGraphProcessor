@@ -13,6 +13,7 @@ namespace PixelCrushers.DialogueSystem.Demo.Wrappers
     [RequireComponent(typeof(CharacterController))]
     public class SimpleController : PixelCrushers.DialogueSystem.Demo.SimpleController
     {
+        
     }
 
 }

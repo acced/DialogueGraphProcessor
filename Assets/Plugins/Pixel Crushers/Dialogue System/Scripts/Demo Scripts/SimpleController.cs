@@ -89,7 +89,7 @@ namespace PixelCrushers.DialogueSystem.Demo
         {
             var camera = UnityEngine.Camera.main;
             m_originalCameraRotation = (camera != null) ? camera.transform.localRotation : Quaternion.identity;
-            DialogueManager.instance.StartConversation("Con1");
+            //DialogueManager.instance.StartConversation();
         }
 
         void Update()

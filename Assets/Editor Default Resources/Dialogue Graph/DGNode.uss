@@ -107,12 +107,21 @@
     color: var(--dg-colors-window-yellow);
 }
 
+.dg-node__image-selector {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
 /* ELEMENTS */
 
 TextField
 {
     margin-left: var(--dg-metrics-window-pixels-0);
 }
+
+
 
 .dg-node__custom-data-container > Foldout
 {
