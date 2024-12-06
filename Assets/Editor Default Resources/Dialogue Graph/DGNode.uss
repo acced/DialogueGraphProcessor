@@ -2,28 +2,54 @@
 
 .dg-node__extension-container
 {
-    background-color: var(--dg-colors-window-dark-grey-1);
+    background-color: var(--dg-colors-node-back-yellow-1);
     padding: var(--dg-metrics-window-pixels-8);
 }
 
 .dg-node__main-container
 {
-    background-color: var(--dg-colors-window-dark-grey-1);
+    background-color: var(--dg-colors-node-back-yellow-1);
+}
+
+.dg-node__image-container
+{
+    display: flex;
+    background-color: var(--dg-colors-node-back-yellow-1);
+    flex-direction: row;
+
+}
+
+.dg-node__title-container
+{
+    background-color: var(--dg-colors-window-dark-grey-2);
+    height: 100%;
 }
 
 .dg-node__custom-data-container
 {
-    background-color: var(--dg-colors-window-dark-grey-3);
+    background-color: var(--dg-colors-window-dark-grey-5);
     border-radius: var(--dg-metrics-window-pixels-4);
     padding: var(--dg-metrics-window-pixels-8);
 }
 
 /* INPUTS */
 
+.dg-node__menu-text-field > .unity-text-field__input
+{
+    margin: 5px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: var(--dg-colors-window-dark-grey-2);
+    border-color: var(--dg-colors-window-dark-grey-5);
+    width: 120px;
+    -unity-text-align: middle-center;
+
+}
+
 .dg-node__text-field > .unity-text-field__input
 {
-    background-color: var(--dg-colors-window-dark-grey-1);
-    border-color: var(--dg-colors-window-dark-grey-6);
+    
+    border-color: var(--dg-colors-window-dark-grey-5);
     border-radius: var(--dg-metrics-window-pixels-4);
     max-width: var(--dg-metrics-window-pixels-240);
     min-width: var(--dg-metrics-window-pixels-160);
@@ -31,45 +57,26 @@
     white-space: normal;
 }
 
-.dg-node__text-field__hidden > .unity-text-field__input
+.dg-node__command-text-field > .unity-text-field__input
 {
-    background-color: var(--dg-colors-window-dark-grey-1);
-    border-color: var(--dg-colors-window-dark-grey-6);
-}
-
-.dg-node__text-field__hidden > .unity-text-field__input:focus
-{
-    background-color: var(--dg-colors-window-dark-grey-1);
-    border-color: var(--dg-colors-window-dark-grey-6);
+    background-color: var(--dg-colors-window-dark-grey-2);
+    border-color: var(--dg-colors-window-dark-grey-5);
+    max-width: var(--dg-metrics-window-pixels-240);
+    min-width: var(--dg-metrics-window-pixels-160);
+    -unity-text-align: middle-center;
 }
 
 .dg-node__filename-text-field > .unity-text-field__input
 {
-    max-width: var(--dg-metrics-window-pixels-1000);
-    margin: var(--dg-metrics-window-pixels-4);
-    padding: var(--dg-metrics-window-pixels-4);
-}
-
-.dg-node__choice-text-field > .unity-text-field__input
-{
-    font-size: var(--dg-metrics-window-pixels-11);
-    height: var(--dg-metrics-window-pixels-35);
-    max-width: var(--dg-metrics-window-pixels-1000);
-    min-width: var(--dg-metrics-window-pixels-0);
-}
-
-.dg-node__choice-text-field > .unity-text-field__input:focus
-{
-    height: var(--dg-metrics-window-pixels-25);
+    max-width: var(--dg-metrics-window-pixels-160);
     margin: var(--dg-metrics-window-pixels-4);
     padding: var(--dg-metrics-window-pixels-4);
 }
 
 .dg-node__quote-text-field > .unity-text-field__input
 {
-    background-color: var(--dg-colors-window-dark-grey-4);
-    border-color: var(--dg-colors-window-dark-grey-1);
-    border-left-color: var(--dg-colors-window-dark-grey-6);
+    background-color: var(--dg-colors-window-dark-grey-3);
+    border-color: var(--dg-colors-window-dark-grey-2);
     border-left-width: var(--dg-metrics-window-pixels-4);
     padding: var(--dg-metrics-window-pixels-16);
     max-width: var(--dg-metrics-window-pixels-600);
@@ -77,13 +84,7 @@
 
 .dg-node__quote-text-field > .unity-text-field__input:hover
 {
-    background-color: var(--dg-colors-window-dark-grey-5);
-}
-
-.dg-node__quote-text-field > .unity-text-field__input:focus
-{
     background-color: var(--dg-colors-window-dark-grey-1);
-    border-color: var(--dg-colors-window-dark-grey-6);
 }
 
 /* BUTTONS */
@@ -108,10 +109,15 @@
 }
 
 .dg-node__image-selector {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-    border-radius: 4px;
+    margin: 5px; 
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.dg-node__top-container {
+
+
 }
 
 /* ELEMENTS */
@@ -120,8 +126,6 @@ TextField
 {
     margin-left: var(--dg-metrics-window-pixels-0);
 }
-
-
 
 .dg-node__custom-data-container > Foldout
 {
@@ -135,9 +139,7 @@ TextField
     margin-top: var(--dg-metrics-window-pixels-8);
 }
 
-/* BUILT IN */
 
-.unity-toggle__text
-{
-    margin-left: var(--dg-metrics-window-pixels-2);
-}
+
+
+

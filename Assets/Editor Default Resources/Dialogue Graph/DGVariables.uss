@@ -3,12 +3,12 @@
     --dg-colors-grid-light-grey-1: #1C282A;
     --dg-colors-grid-light-grey-2: #515B5C;
     --dg-colors-grid-light-grey-3: #515B5C;
-    --dg-colors-window-dark-grey-1: #1D1D1E;
-    --dg-colors-window-dark-grey-2: #2B2D2F;
-    --dg-colors-window-dark-grey-3: #212325;
-    --dg-colors-window-dark-grey-4: #232527;
-    --dg-colors-window-dark-grey-5: #252729;
-    --dg-colors-window-dark-grey-6: #27292C;
+    --dg-colors-node-back-yellow-1: #B4CB1F;
+    --dg-colors-window-dark-grey-1: #2B2D2F;
+    --dg-colors-window-dark-grey-2: #212325;
+    --dg-colors-window-dark-grey-3: #232527;
+    --dg-colors-window-dark-grey-4: #252729;
+    --dg-colors-window-dark-grey-5: #5A6668;
     --dg-colors-window-yellow: #FDD057;
 
     --dg-metrics-grid-25: 25;
@@ -26,6 +26,7 @@
     --dg-metrics-window-pixels-120: 120px;
     --dg-metrics-window-pixels-160: 160px;
     --dg-metrics-window-pixels-240: 240px;
+    --dg-metrics-window-pixels-500: 500px;
     --dg-metrics-window-pixels-600: 600px;
     --dg-metrics-window-pixels-1000: 1000px;
 }

@@ -70,7 +70,7 @@ namespace Editor.DialogueGraph
             
             this.AddManipulator(CreateNodeContextualMenu());
             
-            this.AddManipulator(new ClickSelector());
+            this.AddManipulator(new AdvancedEdgeManipulator());
         }
 
         private IManipulator CreateNodeContextualMenu()

@@ -49,6 +49,8 @@ namespace Editor.Node
             
             mainContainer.AddToClassList("dg-node__main-container");
             extensionContainer.AddToClassList("dg-node__extension-container");
+            topContainer.AddToClassList("dg-node__top-container");
+            titleContainer.AddToClassList("dg-node__title-container");
         }
 
         public virtual void Draw()
@@ -65,35 +67,25 @@ namespace Editor.Node
             );
             dialogueNameTextField.AddToClassList(
                 
-                "dg-node__text-field__hidden"
-            );
-            dialogueNameTextField.AddToClassList(
-                
                 "dg-node__filename-text-field"
             );
             
             titleContainer.Insert(0, dialogueNameTextField);
             
+            /* Under TITLE CONTAINER */
+            VisualElement imageDataContainer = new VisualElement();
+            imageDataContainer.AddToClassList("dg-node__image-container");
             Image image = new Image()
             {
                 name = "ResourceImage",
                 // 明确设置可交互
                 pickingMode = PickingMode.Position  
             };
-            
             image.pickingMode = PickingMode.Position;
-
             // 设置默认图片
             image.image = AssetDatabase.LoadAssetAtPath<Texture2D>(
                 "Assets/Editor Default Resources/Dialogue Asset/Mina_final(0A25).png"
             );
-            
-            // image.RegisterCallback<ClickEvent>(evt =>
-            // {
-            //     evt.StopPropagation();  // Ensure the event is not propagated further
-            //     Debug.Log("Image Clicked!");
-            //     ShowImageSelectorDialog(image);
-            // });
             image.RegisterCallback<MouseDownEvent>(evt =>
             {
                 // 阻止事件冒泡到GraphView
@@ -103,22 +95,29 @@ namespace Editor.Node
                     ShowImageSelectorDialog(image);
                 }
             });
-
-            
-            titleContainer.style.display = DisplayStyle.Flex;
-            
             image.AddToClassList("dg-node__image-selector");
             
+           
+            imageDataContainer.Add(image); 
+            TextField menuTextField = new TextField()
+            {
+                value = "菜单文本",
+                 
+            };
+            menuTextField.multiline = true;
+            imageDataContainer.Add(menuTextField); 
             
-
+            menuTextField.AddToClassList("dg-node__menu-text-field");
+            mainContainer.Insert(1,imageDataContainer);
             
             
             
+          
             /* INPUT CONTAINER */
             
             titleContainer.Insert(0,dialogueNameTextField);
             // Add the image to the title container
-            titleContainer.Insert(1, image); // You can change the index if needed
+           
             
             Port inputPort = Port.Create<Edge>(
                 Orientation.Horizontal,
@@ -140,10 +139,20 @@ namespace Editor.Node
             outputContainer.Add(outputPort);
             
             /* EXTENSION CONTAINER */
-            
             VisualElement customDataContainer = new VisualElement();
             
             customDataContainer.AddToClassList("dg-node__custom-data-container");
+            
+            TextField commandTextField = new TextField()
+            {
+                value = "命令文本",
+            };
+            commandTextField.AddToClassList(
+                "dg-node__command-text-field"
+            );
+            
+            
+            customDataContainer.Add(commandTextField);
             
             Foldout textFoldout = new Foldout()
             {
@@ -168,9 +177,6 @@ namespace Editor.Node
             
             
             extensionContainer.Add(customDataContainer);
-            
-             //确保 extensionContainer 默认可见
-            extensionContainer.style.display = DisplayStyle.Flex; // 显示扩展容器
             RefreshExpandedState(); // 刷新节点的扩展状态
         }
         
